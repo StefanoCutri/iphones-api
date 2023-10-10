@@ -65,8 +65,14 @@ const data = [
 app.get("/api/iphones", (req, res) => {
   res.json(data);
 });
-
+app.get("/api", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+  res.json(data);
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+module.exports = app;
