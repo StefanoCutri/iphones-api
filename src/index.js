@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 const port = 4000;
-
+app.use(cors());
 // Sample array of objects
 const data = [
   {
